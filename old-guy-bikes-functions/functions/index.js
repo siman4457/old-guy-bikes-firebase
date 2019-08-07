@@ -2,9 +2,11 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
 admin.initializeApp();
+const express = require("express");
+const app = express();
 
 //Get all bikes from bikes collection
-exports.getAllBikes = functions.https.onRequest((req, res) => {
+app.get("/bikes", (req, res) => {
   admin
     .firestore()
     .collection("bikes")
@@ -30,11 +32,7 @@ exports.getAllBikes = functions.https.onRequest((req, res) => {
 });
 
 //Add a new bike
-exports.createBike = functions.https.onRequest((req, res) => {
-  if (req.method !== "POST") {
-    return res.status(400).json({ error: "Method not allowed" });
-  }
-
+app.post("/bike", (req, res) => {
   const newBike = {
     bikeName: req.body.bikeName,
     description: req.body.description,
@@ -48,7 +46,7 @@ exports.createBike = functions.https.onRequest((req, res) => {
     .collection("bikes")
     .add(newBike)
     .then(docRef => {
-      console.log("Added document with ID: ", docRef.id);
+      res.json({ mesage: `document ${docRef.id} created successfully.` });
     })
     .catch(err => {
       res.status(500).json({ error: "Something went wrong." });
@@ -57,11 +55,18 @@ exports.createBike = functions.https.onRequest((req, res) => {
 });
 
 //Delete a bike
-exports.deleteBike = functions.https.onRequest((req, res) => {
-  const document = admin.firestore().doc(`/bikes/${req.params.bikeId}`);
-  admin
-    .firestore()
-    .collection("bikes")
-    .doc()
-    .delete();
-});
+// exports.deleteBike = functions.https.onRequest((req, res) => {
+//   const document = admin.firestore().doc(`/bikes/${req.params.bikeId}`);
+//   document.get().then(doc => {
+//     if (!doc.exists) {
+//       return res.status(404).json({ error: "Bike not found" });
+//     }
+//     if (doc.data().userHandle !== req.user.handle) {
+//       return res.status(403).json({ error: "Unauthorized" });
+//     } else {
+//       return document.delete();
+//     }
+//   });
+// });
+
+exports.api = functions.https.onRequest(app);
