@@ -6,6 +6,10 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Bikes from "./components/pages/Bikes";
 import BikeView from "./components/Bike/BikeView";
+import AdminDash from "./components/Admin/AdminDash";
+import CreateBike from "./components/Admin/CreateBike";
+import ManageBikes from "./components/Admin/ManageBikes";
+import EditBike from "./components/Admin/EditBike";
 
 function App() {
   return (
@@ -14,11 +18,18 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Switch>
+            {/* PUBLIC PAGES */}
             <Route exact path="/" component={Home} />
             <Route path="/bikes" component={Bikes} />
             {/* <Route path="/contact" component={Contact} /> */}
             <Route path="/about" component={About} />
-            <Route path="/bikeview/1" component={BikeView} />
+            <Route path="/bikeview/:id" component={BikeView} />
+
+            {/* ADMIN PAGES */}
+            <Route exact path="/admin" component={AdminDash} />
+            <Route path="/admin/createBike" component={CreateBike} />
+            <Route path="/admin/manageBikes" component={ManageBikes} />
+            <Route path="/admin/editBike" component={EditBike} />
           </Switch>
         </header>
       </div>

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class BikeCard extends Component {
+class EditBikeCard extends Component {
   render() {
-    const { bike } = this.props;
     return (
       <div>
         <div style={{ margin: "30px" }} className="card">
@@ -16,21 +15,23 @@ class BikeCard extends Component {
           </div>
           <div className="card-content">
             <span className="card-title activator grey-text text-darken-4">
-              {bike.bikeName}
-              <i className="material-icons right">more_vert</i>
-              <p>${bike.price}</p>
+              Paramount<i className="material-icons right">more_vert</i>
+              <p>$200</p>
             </span>
 
             <p>
-              <Link to={"/bikeview/" + bike.id}>View</Link>
+              {/* <Link to={"/bikeview/" + uid}>*/}
+              <Link to={"/admin/editBike"}>Edit</Link>
             </p>
           </div>
-          {/* TODO: Description is not working properly */}
           <div className="card-reveal">
             <span className="card-title grey-text text-darken-4">
               Paramount<i className="material-icons right">close</i>
             </span>
-            <p>{bike.description}</p>
+            <p>
+              Here is some more information about this product that is only
+              revealed once clicked on.
+            </p>
           </div>
         </div>
       </div>
@@ -38,4 +39,4 @@ class BikeCard extends Component {
   }
 }
 
-export default BikeCard;
+export default EditBikeCard;
