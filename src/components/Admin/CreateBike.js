@@ -3,20 +3,45 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { createBike } from "../../store/actions/bikeActions";
 import { Toast } from "react-materialize";
-
+import FileUploader from "react-firebase-file-uploader";
+import firebase from "firebase";
 class CreateBike extends Component {
   //TODO: Make sure user is authenticated in order to see this
+
   state = {
     bikeName: "",
     price: 0,
     description: "",
-    photoURL: ""
+    image: null,
+    photoURL: "",
+    photo: "",
+    isUploading: false,
+    progress: 0
   };
 
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
     });
+  };
+
+  handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+
+  handleProgress = progress => this.setState({ progress });
+
+  handleUploadError = error => {
+    this.setState({ isUploading: false });
+    console.error(error);
+  };
+
+  handleUploadSuccess = filename => {
+    this.setState({ photo: filename, progress: 100, isUploading: false });
+    firebase
+      .storage()
+      .ref("images")
+      .child(filename)
+      .getDownloadURL()
+      .then(url => this.setState({ photoURL: url }));
   };
 
   handleSubmit = e => {
@@ -40,21 +65,24 @@ class CreateBike extends Component {
             <input type="text" id="price" onChange={this.handleChange} />
           </div>
 
-          {/* <label>Materialize File Input</label> */}
-          {/* <div className="file-field input-field">
-            <div className="btn">
-              <span>Browse</span>
-              <input type="file" />
-            </div>
+          {/* FILE UPLOAD */}
 
-            <div className="file-path-wrapper">
-              <input
-                className="file-path validate"
-                type="text"
-                placeholder="Upload file"
-              />
-            </div>
-          </div> */}
+          <label>Image:</label>
+          {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+          {this.state.photoURL && <img src={this.state.photoURL} />}
+
+          <FileUploader
+            accept="image/*"
+            name="photo"
+            randomizeFilename
+            storageRef={firebase.storage().ref("images")}
+            // onUploadStart={this.handleUploadStart}
+            onUploadError={this.handleUploadError}
+            onUploadSuccess={this.handleUploadSuccess}
+            // onProgress={this.handleProgress}
+          />
+
+          {/* FILE UPLOAD END */}
 
           <div className="input-field">
             <label htmlFor="description">Description</label>

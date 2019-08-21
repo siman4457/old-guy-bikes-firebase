@@ -9,8 +9,8 @@ class BikeCard extends Component {
         <div style={{ margin: "30px" }} className="card">
           <div className="card-image waves-effect waves-block waves-light">
             <img
-              src="https://via.placeholder.com/300x225.jpg"
-              alt="error"
+              src={bike.photoURL}
+              alt="https://via.placeholder.com/300x225.jpg"
               className="activator"
             />
           </div>
@@ -28,7 +28,8 @@ class BikeCard extends Component {
           {/* TODO: Description is not working properly */}
           <div className="card-reveal">
             <span className="card-title grey-text text-darken-4">
-              Paramount<i className="material-icons right">close</i>
+              {bike.bikeName}
+              <i className="material-icons right">close</i>
             </span>
             <p>{bike.description}</p>
           </div>

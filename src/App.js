@@ -9,7 +9,7 @@ import BikeView from "./components/Bike/BikeView";
 import AdminDash from "./components/Admin/AdminDash";
 import CreateBike from "./components/Admin/CreateBike";
 import ManageBikes from "./components/Admin/ManageBikes";
-import EditBike from "./components/Admin/EditBike";
+import EditBike from "./components/Admin/EditBikeView";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/admin" component={AdminDash} />
             <Route path="/admin/createBike" component={CreateBike} />
             <Route path="/admin/manageBikes" component={ManageBikes} />
-            <Route path="/admin/editBike" component={EditBike} />
+            <Route path="/admin/editBike/:id" component={EditBike} />
           </Switch>
         </header>
       </div>

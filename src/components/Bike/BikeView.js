@@ -16,7 +16,7 @@ class BikeView extends Component {
                   <span className="card-title">
                     <h2>{bike.bikeName}</h2>
                   </span>
-                  <p>{bike.photoURL}</p>
+                  <img src={bike.photoURL} alt="error" />
                 </div>
                 <div className="card-action">
                   <h4>Description</h4>
@@ -38,15 +38,10 @@ class BikeView extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //id = the document id of the project
   const id = ownProps.match.params.id;
   const bikes = state.firestore.data.bikes;
   const bike = bikes ? bikes[id] : null;
 
-  //DUMMY DADA TESTING:
-  // const bikes = state.bike.bikes;
-  // const bike = bikes ? bikes.find(x => x.id === id) : null;
-  // console.log("We are looking at this bike:", bike);
   return {
     bike: bike,
     // auth: state.firebase.auth,
