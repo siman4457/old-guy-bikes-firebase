@@ -1,7 +1,6 @@
 //This is our action creator
 export const signIn = credentials => {
   return (dispatch, getState, { getFirebase }) => {
-    /****** USING THUNK, HALT AND MAKE ASYNC CALL TO AUTH SERVICE ******/
     const firebase = getFirebase();
     firebase
       .auth()
@@ -23,7 +22,7 @@ export const signOut = () => {
       .signOut()
       .then(dispatch({ type: "LOGOUT_SUCCESS" }))
       .catch(err => {
-        dispatch({ type: "LOGOUT_ERROR" });
+        dispatch({ type: "LOGOUT_ERROR", err: err });
       });
   };
 };

@@ -13,7 +13,7 @@ const Navbar = props => {
           <div className="planner-logo">
             {/* Desktop Nav Bar */}
             <Link to={"/"} className="brand-logo">
-              Bike Shop
+              Old Guy Bikes
             </Link>
 
             {/* Mobile Nav Bar */}

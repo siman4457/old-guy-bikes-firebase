@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { createBike } from "../../store/actions/bikeActions";
 import { Toast } from "react-materialize";
 import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
+import { Redirect } from "react-router-dom";
 class CreateBike extends Component {
   //TODO: Make sure user is authenticated in order to see this
 
@@ -52,58 +52,64 @@ class CreateBike extends Component {
   };
 
   render() {
-    return (
-      <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Add a New Bike</h5>
-          <div className="input-field">
-            <label htmlFor="bikeName">Bike Name</label>
-            <input type="text" id="bikeName" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="price">Price</label>
-            <input type="text" id="price" onChange={this.handleChange} />
-          </div>
+    const { auth } = this.props;
 
-          {/* FILE UPLOAD */}
+    if (!auth.uid) {
+      return <Redirect to="/signin" />;
+    } else {
+      return (
+        <div className="container">
+          <form onSubmit={this.handleSubmit} className="white">
+            <h5 className="grey-text text-darken-3">Add a New Bike</h5>
+            <div className="input-field">
+              <label htmlFor="bikeName">Bike Name</label>
+              <input type="text" id="bikeName" onChange={this.handleChange} />
+            </div>
+            <div className="input-field">
+              <label htmlFor="price">Price</label>
+              <input type="text" id="price" onChange={this.handleChange} />
+            </div>
 
-          <label>Image:</label>
-          {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-          {this.state.photoURL && <img src={this.state.photoURL} />}
+            {/* FILE UPLOAD */}
 
-          <FileUploader
-            accept="image/*"
-            name="photo"
-            randomizeFilename
-            storageRef={firebase.storage().ref("images")}
-            // onUploadStart={this.handleUploadStart}
-            onUploadError={this.handleUploadError}
-            onUploadSuccess={this.handleUploadSuccess}
-            // onProgress={this.handleProgress}
-          />
+            <label>Image:</label>
+            {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+            {this.state.photoURL && <img src={this.state.photoURL} />}
 
-          {/* FILE UPLOAD END */}
-
-          <div className="input-field">
-            <label htmlFor="description">Description</label>
-            <textarea
-              id="description"
-              onChange={this.handleChange}
-              className="materialize-textarea"
+            <FileUploader
+              accept="image/*"
+              name="photo"
+              randomizeFilename
+              storageRef={firebase.storage().ref("images")}
+              // onUploadStart={this.handleUploadStart}
+              onUploadError={this.handleUploadError}
+              onUploadSuccess={this.handleUploadSuccess}
+              // onProgress={this.handleProgress}
             />
-          </div>
-          <div className="input-field">
-            <Toast
-              type="submit"
-              className="btn pink lighten-1 z-depth-0"
-              options={{ html: "New bike added!" }}
-            >
-              Submit
-            </Toast>
-          </div>
-        </form>
-      </div>
-    );
+
+            {/* FILE UPLOAD END */}
+
+            <div className="input-field">
+              <label htmlFor="description">Description</label>
+              <textarea
+                id="description"
+                onChange={this.handleChange}
+                className="materialize-textarea"
+              />
+            </div>
+            <div className="input-field">
+              <Toast
+                type="submit"
+                className="btn pink lighten-1 z-depth-0"
+                options={{ html: "New bike added!" }}
+              >
+                Submit
+              </Toast>
+            </div>
+          </form>
+        </div>
+      );
+    }
   }
 }
 
@@ -113,7 +119,13 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CreateBike);

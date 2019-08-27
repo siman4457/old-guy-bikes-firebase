@@ -7,6 +7,7 @@ import firebase from "firebase";
 import { Toast } from "react-materialize";
 import { editBike } from "../../store/actions/bikeActions";
 import { deleteBike } from "../../store/actions/bikeActions";
+import { Redirect } from "react-router-dom";
 
 class EditBikeView extends Component {
   state = {
@@ -78,102 +79,105 @@ class EditBikeView extends Component {
   };
 
   render() {
-    const { bike } = this.props;
+    const { bike, auth } = this.props;
+    if (!auth.uid) {
+      return <Redirect to="/signin" />;
+    } else {
+      if (bike) {
+        return (
+          <div className="container">
+            <form onSubmit={this.handleSubmit} className="white">
+              <h5 className="grey-text text-darken-3">
+                Editing: {bike.bikeName}
+              </h5>
+              <div className="input-field">
+                <label htmlFor="bikeName" className="active">
+                  Bike Name
+                </label>
+                <input
+                  type="text"
+                  id="bikeName"
+                  onChange={this.handleChange}
+                  defaultValue={bike.bikeName}
+                />
+              </div>
+              <div className="input-field">
+                <label htmlFor="price" className="active">
+                  Price
+                </label>
+                <input
+                  type="text"
+                  id="price"
+                  onChange={this.handleChange}
+                  defaultValue={bike.price}
+                />
+              </div>
 
-    if (bike) {
-      return (
-        <div className="container">
-          <form onSubmit={this.handleSubmit} className="white">
-            <h5 className="grey-text text-darken-3">
-              Editing: {bike.bikeName}
-            </h5>
-            <div className="input-field">
-              <label htmlFor="bikeName" className="active">
-                Bike Name
-              </label>
-              <input
-                type="text"
-                id="bikeName"
-                onChange={this.handleChange}
-                defaultValue={bike.bikeName}
+              {/* FILE UPLOAD */}
+
+              <label>Image:</label>
+              {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+              {bike.photoURL ||
+                (this.state.photoURL && (
+                  <img src={this.state.photoURL} alt="error" />
+                ))}
+
+              <FileUploader
+                accept="image/*"
+                name="photo"
+                randomizeFilename
+                storageRef={firebase.storage().ref("images")}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
               />
-            </div>
-            <div className="input-field">
-              <label htmlFor="price" className="active">
-                Price
-              </label>
-              <input
-                type="text"
-                id="price"
-                onChange={this.handleChange}
-                defaultValue={bike.price}
-              />
-            </div>
 
-            {/* FILE UPLOAD */}
+              {/* FILE UPLOAD END */}
 
-            <label>Image:</label>
-            {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-            {bike.photoURL ||
-              (this.state.photoURL && (
-                <img src={this.state.photoURL} alt="error" />
-              ))}
-
-            <FileUploader
-              accept="image/*"
-              name="photo"
-              randomizeFilename
-              storageRef={firebase.storage().ref("images")}
-              onUploadStart={this.handleUploadStart}
-              onUploadError={this.handleUploadError}
-              onUploadSuccess={this.handleUploadSuccess}
-              onProgress={this.handleProgress}
-            />
-
-            {/* FILE UPLOAD END */}
-
-            <div className="input-field">
-              <label htmlFor="description" className="active">
-                Description
-              </label>
-              <textarea
-                id="description"
-                onChange={this.handleChange}
-                className="materialize-textarea"
-                defaultValue={bike.description}
-              />
-            </div>
-            <div className="input-field">
-              <Toast
-                type="submit"
-                className="btn pink lighten-1 z-depth-0"
-                options={{ html: "Bike Updated!" }}
-              >
-                Update
-              </Toast>
-            </div>
-          </form>
-          <div>
-            <div className="card">
-              <div className="card-content">
-                <button
-                  onClick={this.handleDelete}
-                  // value={auth}
-                  className="waves-effect waves-light btn red"
+              <div className="input-field">
+                <label htmlFor="description" className="active">
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  onChange={this.handleChange}
+                  className="materialize-textarea"
+                  defaultValue={bike.description}
+                />
+              </div>
+              <div className="input-field">
+                <Toast
+                  type="submit"
+                  className="btn pink lighten-1 z-depth-0"
+                  options={{ html: "Bike Updated!" }}
                 >
-                  Delete
-                </button>
+                  Update
+                </Toast>
+              </div>
+            </form>
+            <div>
+              <div className="card">
+                <div className="card-content">
+                  <button
+                    onClick={this.handleDelete}
+                    // value={auth}
+                    className="waves-effect waves-light btn red"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="container center">
-          <p>Loading project...</p>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="container center">
+            <p>Loading project...</p>
+          </div>
+        );
+      }
     }
   }
 }
@@ -186,7 +190,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     bike: bike,
-    // auth: state.firebase.auth,
+    auth: state.firebase.auth,
     bikeId: id
   };
 };

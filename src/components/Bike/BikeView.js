@@ -17,6 +17,7 @@ class BikeView extends Component {
                     <h2>{bike.bikeName}</h2>
                   </span>
                   <img src={bike.photoURL} alt="error" />
+                  <h4 className="text-center">${bike.price}</h4>
                 </div>
                 <div className="card-action">
                   <h4>Description</h4>

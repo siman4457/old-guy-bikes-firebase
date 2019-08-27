@@ -5,7 +5,7 @@ import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer } from "react-redux-firebase";
 
 const rootReducer = combineReducers({
-  // auth: authReducer,
+  auth: authReducer,
   bike: bikeReducer,
 
   /*In the background, this reducer is automatically

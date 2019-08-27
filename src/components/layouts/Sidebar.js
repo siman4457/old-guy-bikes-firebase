@@ -19,11 +19,15 @@ class Sidebar extends Component {
           }
           options={{ closeOnClick: true }}
         >
-          <SideNavItem href={"/"} icon="dashboard">
+          <SideNavItem href="/" icon="dashboard">
             Home
           </SideNavItem>
 
-          <SideNavItem href={"/about"} icon="edit">
+          <SideNavItem href="/bikes" icon="directions_bike">
+            Bikes
+          </SideNavItem>
+
+          <SideNavItem href="/about" icon="edit">
             About
           </SideNavItem>
 
