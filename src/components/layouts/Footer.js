@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         <div className="footer-copyright">
           <div className="container">
-            © 2019 Copyright Text
+            {/* © 2019 Copyright Text */}
             <Link to="simanls.com" className="grey-text text-lighten-4 right">
               Created by Siman Shrestha
             </Link>
