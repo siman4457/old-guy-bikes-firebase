@@ -21,3 +21,7 @@ form button,
 form h5 {
   margin: 20px 0;
 }
+
+.include-line-break {
+  white-space: pre-line;
+}

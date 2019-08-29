@@ -10,18 +10,22 @@ class BikeView extends Component {
       return (
         <div>
           <div className="container valign-wrapper">
-            <div className="col s12 m6">
+            <div className="col m6">
               <div className="card blue-grey darken-1">
                 <div className="card-content white-text">
                   <span className="card-title">
                     <h2>{bike.bikeName}</h2>
                   </span>
-                  <img src={bike.photoURL} alt="error" />
+                  <img
+                    className="responsive-img"
+                    src={bike.photoURL}
+                    alt="error"
+                  />
                   <h4 className="text-center">${bike.price}</h4>
                 </div>
                 <div className="card-action">
                   <h4>Description</h4>
-                  <p>{bike.description}</p>
+                  <p className="include-line-break">{bike.description}</p>
                 </div>
               </div>
             </div>
@@ -45,7 +49,6 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     bike: bike,
-    // auth: state.firebase.auth,
     docId: id
   };
 };

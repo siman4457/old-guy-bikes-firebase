@@ -50,7 +50,7 @@ class EditBikeCard extends Component {
                 {bike.bikeName}
                 <i className="material-icons right">close</i>
               </span>
-              <p>{bike.description}</p>
+              <p className="include-line-break">{bike.description}</p>
             </div>
           </div>
         </div>
