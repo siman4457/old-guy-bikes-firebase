@@ -19,7 +19,6 @@ function About() {
           </div>
           <div className="card-action">
             <a href="tel:469-509-5481">Call</a>
-            {/* <a href="#">Text</a> */}
           </div>
         </div>
       </div>

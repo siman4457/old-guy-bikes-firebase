@@ -45,8 +45,6 @@ class CreateBike extends Component {
   };
 
   handleSubmit = e => {
-    // let bike = this.state;
-    // console.log(bike);
     this.props.createBike(this.state);
     e.preventDefault();
   };

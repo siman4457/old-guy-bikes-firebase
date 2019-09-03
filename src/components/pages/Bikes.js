@@ -7,7 +7,6 @@ import { firestoreConnect } from "react-redux-firebase";
 class Bikes extends Component {
   render() {
     const { bikes } = this.props;
-    console.log(this.props);
     return (
       <div className="container">
         <br />

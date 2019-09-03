@@ -10,7 +10,6 @@ class SignIn extends Component {
   };
 
   handleChange = e => {
-    console.log("changing", e);
     this.setState({
       [e.target.id]: e.target.value
     });
@@ -18,7 +17,6 @@ class SignIn extends Component {
 
   handleSubmit = e => {
     const credentials = this.state;
-    console.log("signing in with: ", credentials);
     this.props.signIn(credentials);
     e.preventDefault();
   };
@@ -52,6 +50,7 @@ class SignIn extends Component {
             {authError ? <p>Invalid login, try again</p> : null}
           </div>
         </form>
+        <br />
       </div>
     );
   }

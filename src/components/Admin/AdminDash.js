@@ -21,7 +21,8 @@ class AdminDash extends Component {
             >
               Add a new bike
             </Link>
-            &nbsp;
+          </div>
+          <div className="row">
             <Link
               className="waves-effect waves-light btn"
               to={"/admin/manageBikes"}
@@ -32,7 +33,7 @@ class AdminDash extends Component {
 
           <footer>
             <a
-              className="waves-effect waves-light btn"
+              className="red waves-effect waves-light btn"
               href="/signin"
               onClick={this.props.signOut}
             >
