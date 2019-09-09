@@ -22,7 +22,6 @@ class EditBikeCard extends Component {
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">
                 {bike.bikeName}
-                <i className="material-icons right">more_vert</i>
                 <p>${bike.price}</p>
               </span>
 
@@ -44,13 +43,14 @@ class EditBikeCard extends Component {
                 </Link>
               </p>
             </div>
-            {/* TODO: Description is not working properly */}
             <div className="card-reveal">
               <span className="card-title grey-text text-darken-4">
                 {bike.bikeName}
                 <i className="material-icons right">close</i>
               </span>
-              <p className="include-line-break">{bike.description}</p>
+              <p className="black-text include-line-break ">
+                {bike.description}
+              </p>
             </div>
           </div>
         </div>
