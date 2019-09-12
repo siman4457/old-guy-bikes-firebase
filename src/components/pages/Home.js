@@ -5,10 +5,23 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Old Guy Bikes</h1>
-        <Link className="btn pink lighten-1 z-depth-0" to={"/bikes/"}>
-          View Bikes
-        </Link>
+        {/* <section className="home-section-1">
+          <div className="blue-bar"></div>
+        </section> */}
+
+        <section className="home-section-1">
+          <img
+            src={require("../../assets/images/mountain-bike.jpg")}
+            alt="mountian bike"
+          />
+        </section>
+        <br />
+        <section>
+          <Link className="btn-large black z-depth-0" to={"/bikes/"}>
+            View Bikes
+          </Link>
+        </section>
+        <br />
       </div>
     );
   }

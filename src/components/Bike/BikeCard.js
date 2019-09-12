@@ -23,7 +23,7 @@ class BikeCard extends Component {
 
             <p>
               <Link
-                className="btn pink lighten-1 z-depth-0"
+                className="btn black z-depth-0"
                 to={"/bikes/bikeview/" + bike.id}
               >
                 Details

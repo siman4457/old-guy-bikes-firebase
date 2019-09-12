@@ -1,22 +1,14 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #fff;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -30,4 +22,51 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+div.black-button {
+  width: 400px;
+  height: 26px;
+  border-radius: 15px;
+  background-color: #000000;
+}
+
+div.blue-bar {
+  width: 400px;
+  height: 26px;
+  background-color: #4d98ff;
+  -ms-transform: rotate(20deg); /* IE 9 */
+  -webkit-transform: rotate(20deg); /* Safari 3-8 */
+  transform: rotate(20deg);
+  border: 2px solid #000000;
+  border-radius: 15px;
+}
+
+div.black-bar {
+  width: 400px;
+  height: 26px;
+  background-color: #000000;
+  -ms-transform: rotate(20deg); /* IE 9 */
+  -webkit-transform: rotate(20deg); /* Safari 3-8 */
+  transform: rotate(20deg);
+  border: 2px solid #4d98ff;
+  border-radius: 15px;
+}
+
+section.home-section-1 {
+  width: 100%;
+  height: 33%;
+}
+
+section.center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

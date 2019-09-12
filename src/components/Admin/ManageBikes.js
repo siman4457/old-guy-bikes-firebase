@@ -3,7 +3,6 @@ import EditBikeList from "./EditBikeList";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { Redirect } from "react-router-dom";
 
 class ManageBikes extends Component {
   //TODO: Make sure user is authenticated in order to see this

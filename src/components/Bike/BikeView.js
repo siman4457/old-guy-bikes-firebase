@@ -8,28 +8,23 @@ class BikeView extends Component {
     const { bike } = this.props;
     if (bike) {
       return (
-        <div>
-          <div className="container valign-wrapper">
-            <div className="col m6">
-              <div className="card blue-grey darken-1">
-                <div className="card-content white-text">
-                  <span className="card-title">
-                    <h2>{bike.bikeName}</h2>
-                  </span>
-                  <img
-                    className="responsive-img"
-                    src={bike.photoURL}
-                    alt="error"
-                  />
-                  <h4 className="text-center">${bike.price}</h4>
-                </div>
-                <div className="card-action">
-                  <h4>Description</h4>
-                  <p className="include-line-break">{bike.description}</p>
-                </div>
-              </div>
-            </div>
+        <div className="container">
+          {/* <h1 className="black-text">lol</h1> */}
+          <h2 className="black-text">{bike.bikeName}</h2>
+
+          <img className="responsive-img" src={bike.photoURL} alt="error" />
+          <h4 className="text-center">${bike.price}</h4>
+
+          <div className="black-text">
+            <h4>Description</h4>
+            <p className="include-line-break black-text">{bike.description}</p>
           </div>
+          <div>
+            <a className="btn-large blue z-depth-0" href="tel:469-509-5481">
+              Contact
+            </a>
+          </div>
+          <br />
         </div>
       );
     } else {

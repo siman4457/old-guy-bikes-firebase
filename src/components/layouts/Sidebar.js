@@ -13,7 +13,7 @@ class Sidebar extends Component {
           trigger={
             <Button flat>
               <span style={menuStyle}>
-                <i className="material-icons">menu</i>
+                <i className="material-icons black-text">menu</i>
               </span>
             </Button>
           }

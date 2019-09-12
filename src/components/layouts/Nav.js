@@ -8,11 +8,11 @@ import { NavLink } from "react-router-dom";
 const Navbar = props => {
   return (
     <div>
-      <nav className="nav-wrapper black">
+      <nav className="nav-wrapper white z-depth-0">
         <div className="container">
           <div className="planner-logo">
             {/* Desktop Nav Bar */}
-            <Link to={"/"} className="brand-logo">
+            <Link to={"/"} className="brand-logo black-text">
               Old Guy Bikes
             </Link>
 
@@ -23,13 +23,19 @@ const Navbar = props => {
           {/* Show links based on whether a user is logged in or not */}
           <ul className="right hide-on-med-and-down">
             <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink className="black-text" to={"/"}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/bikes"}>Bikes</NavLink>
+              <NavLink className="black-text" to={"/bikes"}>
+                Bikes
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/about"}>About</NavLink>
+              <NavLink className="black-text" to={"/about"}>
+                About
+              </NavLink>
             </li>
           </ul>
         </div>
