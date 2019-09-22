@@ -12,7 +12,7 @@ const Navbar = props => {
         <div className="container">
           <div className="planner-logo">
             {/* Desktop Nav Bar */}
-            <Link to={"/"} className="brand-logo black-text">
+            <Link to={"/"} className="ubuntu brand-logo black-text">
               Old Guy Bikes
             </Link>
 
@@ -23,17 +23,17 @@ const Navbar = props => {
           {/* Show links based on whether a user is logged in or not */}
           <ul className="right hide-on-med-and-down">
             <li>
-              <NavLink className="black-text" to={"/"}>
+              <NavLink className="ubuntu black-text" to={"/"}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink className="black-text" to={"/bikes"}>
+              <NavLink className="ubuntu black-text" to={"/bikes"}>
                 Bikes
               </NavLink>
             </li>
             <li>
-              <NavLink className="black-text" to={"/about"}>
+              <NavLink className="ubuntu black-text" to={"/about"}>
                 About
               </NavLink>
             </li>

@@ -12,7 +12,11 @@ class BikeView extends Component {
           {/* <h1 className="black-text">lol</h1> */}
           <h2 className="black-text">{bike.bikeName}</h2>
 
-          <img className="responsive-img" src={bike.photoURL} alt="error" />
+          <img
+            className="rounded-corners responsive-img"
+            src={bike.photoURL}
+            alt="error"
+          />
           <h4 className="text-center">${bike.price}</h4>
 
           <div className="black-text">

@@ -15,16 +15,18 @@ class AdminDash extends Component {
       return (
         <div className="container">
           <div className="row">
+            <h2>Admin Dashboard</h2>
+          </div>
+          <div className="row">
             <Link
-              className="waves-effect waves-light btn"
+              className="black z-depth-0  btn-large"
               to={"/admin/createBike"}
             >
               Add a new bike
             </Link>
-          </div>
-          <div className="row">
+            &nbsp;
             <Link
-              className="waves-effect waves-light btn"
+              className="black z-depth-0  btn-large"
               to={"/admin/manageBikes"}
             >
               Edit or delete a bike
@@ -33,7 +35,7 @@ class AdminDash extends Component {
 
           <footer>
             <a
-              className="red waves-effect waves-light btn"
+              className="red z-depth-0 btn-large"
               href="/signin"
               onClick={this.props.signOut}
             >

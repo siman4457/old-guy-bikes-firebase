@@ -3,6 +3,10 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+.ubuntu {
+  font-family: "Ubuntu", sans-serif;
+}
+
 .App-header {
   background-color: #fff;
   min-height: 100vh;
@@ -25,8 +29,24 @@
 }
 
 img {
-  width: 100%;
+  width: 90%;
   height: auto;
+}
+
+shadow {
+  display: block;
+  position: relative;
+}
+
+.shadow:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -moz-box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
+  box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
 }
 
 div.black-button {
@@ -34,28 +54,6 @@ div.black-button {
   height: 26px;
   border-radius: 15px;
   background-color: #000000;
-}
-
-div.blue-bar {
-  width: 400px;
-  height: 26px;
-  background-color: #4d98ff;
-  -ms-transform: rotate(20deg); /* IE 9 */
-  -webkit-transform: rotate(20deg); /* Safari 3-8 */
-  transform: rotate(20deg);
-  border: 2px solid #000000;
-  border-radius: 15px;
-}
-
-div.black-bar {
-  width: 400px;
-  height: 26px;
-  background-color: #000000;
-  -ms-transform: rotate(20deg); /* IE 9 */
-  -webkit-transform: rotate(20deg); /* Safari 3-8 */
-  transform: rotate(20deg);
-  border: 2px solid #4d98ff;
-  border-radius: 15px;
 }
 
 section.home-section-1 {
@@ -69,4 +67,8 @@ section.center {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.rounded-corners {
+  border-radius: 2%;
 }

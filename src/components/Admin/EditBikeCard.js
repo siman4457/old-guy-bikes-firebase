@@ -39,7 +39,7 @@ class EditBikeCard extends Component {
                   }}
                   key={bike.id}
                 >
-                  <button className="btn pink lighten-1 z-depth-0">Edit</button>
+                  <button className="btn black z-depth-0">Edit</button>
                 </Link>
               </p>
             </div>

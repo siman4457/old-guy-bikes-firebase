@@ -149,25 +149,21 @@ class EditBikeView extends Component {
               <div className="input-field">
                 <Toast
                   type="submit"
-                  className="btn pink lighten-1 z-depth-0"
+                  className="black z-depth-0 waves-effect waves-light btn-large"
                   options={{ html: "Bike Updated!" }}
                 >
                   Update
                 </Toast>
               </div>
             </form>
-            <div>
-              <div className="card">
-                <div className="card-content">
-                  <button
-                    onClick={this.handleDelete}
-                    // value={auth}
-                    className="waves-effect waves-light btn red"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+            <div className="row">
+              <button
+                onClick={this.handleDelete}
+                // value={auth}
+                className="red z-depth-0 waves-effect waves-light btn-large"
+              >
+                Delete
+              </button>
             </div>
           </div>
         );

@@ -10,6 +10,7 @@ class Bikes extends Component {
     return (
       <div className="container">
         <br />
+        <h2>Bikes</h2>
         <BikeList bikes={bikes} />
       </div>
     );
