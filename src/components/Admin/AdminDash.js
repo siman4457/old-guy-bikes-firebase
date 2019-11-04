@@ -24,7 +24,8 @@ class AdminDash extends Component {
             >
               Add a new bike
             </Link>
-            &nbsp;
+          </div>
+          <div className="row">
             <Link
               className="black z-depth-0  btn-large"
               to={"/admin/manageBikes"}

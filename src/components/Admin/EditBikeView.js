@@ -4,7 +4,6 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
-import { Toast } from "react-materialize";
 import { editBike } from "../../store/actions/bikeActions";
 import { deleteBike } from "../../store/actions/bikeActions";
 import { Redirect } from "react-router-dom";
@@ -61,10 +60,11 @@ class EditBikeView extends Component {
   };
 
   handleDelete = e => {
-    let result = window.confirm("Want to delete?");
+    let result = window.confirm("Are you sure you want to delete?");
     if (result) {
       const bikeId = this.props.bikeId;
       this.props.deleteBike(bikeId);
+
       //Redirect
       let path = "/admin/manageBikes";
       this.props.history.push(path);
@@ -75,7 +75,18 @@ class EditBikeView extends Component {
     const localBike = this.state;
     let bikeId = this.props.bikeId;
     this.props.editBike(localBike, bikeId);
-    e.preventDefault();
+    let path = "/admin/manageBikes";
+    this.props.history.push(path);
+  };
+
+  handleCancel = e => {
+    let result = window.confirm(
+      "Are you sure you want to cancel your changes?"
+    );
+    if (result) {
+      let path = "/admin/manageBikes";
+      this.props.history.push(path);
+    }
   };
 
   render() {
@@ -113,15 +124,10 @@ class EditBikeView extends Component {
                 />
               </div>
 
-              {/* FILE UPLOAD */}
-
-              <label>Image:</label>
+              {/* IMAGE UPLOAD */}
+              <label>Image: </label>
               {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-              {bike.photoURL ||
-                (this.state.photoURL && (
-                  <img src={this.state.photoURL} alt="error" />
-                ))}
-
+              {this.state.photoURL && <img src={this.state.photoURL} />}
               <FileUploader
                 accept="image/*"
                 name="photo"
@@ -132,7 +138,6 @@ class EditBikeView extends Component {
                 onUploadSuccess={this.handleUploadSuccess}
                 onProgress={this.handleProgress}
               />
-
               {/* FILE UPLOAD END */}
 
               <div className="input-field">
@@ -146,23 +151,26 @@ class EditBikeView extends Component {
                   defaultValue={bike.description}
                 />
               </div>
-              <div className="input-field">
-                <Toast
-                  type="submit"
-                  className="black z-depth-0 waves-effect waves-light btn-large"
-                  options={{ html: "Bike Updated!" }}
-                >
-                  Update
-                </Toast>
-              </div>
             </form>
             <div className="row">
               <button
+                className="col s4 black z-depth-0 waves-effect waves-light btn-large"
+                onClick={this.handleSubmit}
+              >
+                Update
+              </button>
+
+              <button
                 onClick={this.handleDelete}
-                // value={auth}
-                className="red z-depth-0 waves-effect waves-light btn-large"
+                className="col s4 red z-depth-0 waves-effect waves-light btn-large"
               >
                 Delete
+              </button>
+              <button
+                onClick={this.handleCancel}
+                className="col s4 black z-depth-0 waves-effect waves-light btn-large"
+              >
+                Cancel
               </button>
             </div>
           </div>

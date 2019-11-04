@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import Description from "../layouts/Description";
 
 class BikeView extends Component {
   render() {
@@ -21,7 +22,8 @@ class BikeView extends Component {
 
           <div className="black-text">
             <h4>Description</h4>
-            <p className="include-line-break black-text">{bike.description}</p>
+            {/* <p className="include-line-break black-text">{bike.description}</p> */}
+            <Description />
           </div>
           <div>
             <a className="btn-large blue z-depth-0" href="tel:469-509-5481">

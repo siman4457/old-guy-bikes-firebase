@@ -16,11 +16,33 @@ const Footer = () => {
               <ul>
                 <li>
                   <Link
-                    className="ubuntu grey-text text-lighten-3"
+                    className="ubuntu footer-link"
+                    id="owner-login"
                     to={"/signin"}
                   >
                     Owner Login
                   </Link>
+                </li>
+                <br />
+                <li>
+                  <div>
+                    Browser tab icon was made by{" "}
+                    <a
+                      class="footer-link"
+                      href="https://www.flaticon.com/authors/freepik"
+                      title="Freepik"
+                    >
+                      Freepik
+                    </a>{" "}
+                    from{" "}
+                    <a
+                      class="footer-link"
+                      href="https://www.flaticon.com/"
+                      title="Flaticon"
+                    >
+                      www.flaticon.com
+                    </a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -31,7 +53,8 @@ const Footer = () => {
             {/* © 2019 Copyright Text */}
             <Link
               to="simanls.com"
-              className="ubuntu grey-text text-lighten-4 right"
+              className="ubuntu footer-link right"
+              id="signature"
             >
               Created by Siman Shrestha
             </Link>

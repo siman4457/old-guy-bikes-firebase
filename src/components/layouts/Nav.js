@@ -1,47 +1,129 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import { NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { signOut } from "../../store/actions/authActions";
 //This Navbar component is a funcitonal component because we dont need to worry about state. Just display the Navbar!
 
-const Navbar = props => {
-  return (
-    <div>
-      <nav className="nav-wrapper white z-depth-0">
-        <div className="container">
-          <div className="planner-logo">
-            {/* Desktop Nav Bar */}
-            <Link to={"/"} className="ubuntu brand-logo black-text">
-              Old Guy Bikes
-            </Link>
+class Navbar extends Component {
+  render() {
+    const { auth } = this.props;
+    //--- Public nav ---
+    if (!auth.uid) {
+      return (
+        <div>
+          <nav className="nav-wrapper white z-depth-0">
+            <div className="container">
+              {/* Desktop Nav Bar */}
+              <Link
+                to={"/bikes"}
+                className="ubuntu brand-logo black-text hide-on-small-only"
+              >
+                Old Guy Bikes
+              </Link>
 
-            {/* Mobile Nav Bar */}
-            <Sidebar />
-          </div>
+              {/* Mobile Nav Bar */}
+              <span className="ubuntu black-text hide-on-med-and-up">
+                Old Guy Bikes
+              </span>
 
-          {/* Show links based on whether a user is logged in or not */}
-          <ul className="right hide-on-med-and-down">
-            <li>
-              <NavLink className="ubuntu black-text" to={"/"}>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="ubuntu black-text" to={"/bikes"}>
-                Bikes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="ubuntu black-text" to={"/about"}>
-                About
-              </NavLink>
-            </li>
-          </ul>
+              <span className="hide-on-large-only">
+                <Sidebar />
+              </span>
+
+              {/* Show links based on whether a user is logged in or not */}
+              <ul className="right hide-on-med-and-down">
+                <li>
+                  <NavLink className="ubuntu black-text" to={"/bikes"}>
+                    Bikes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="ubuntu black-text" to={"/about"}>
+                    About
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-      </nav>
-    </div>
-  );
+      );
+    }
+    //--- Admin nav ---
+    else {
+      return (
+        <div>
+          <nav className="nav-wrapper white z-depth-0">
+            <div className="container">
+              <div className="planner-logo">
+                {/* Desktop Nav Bar */}
+                <Link
+                  to={"/bikes"}
+                  className="ubuntu brand-logo black-text hide-on-small-only"
+                >
+                  Old Guy Bikes
+                </Link>
+
+                {/* Mobile Nav Bar */}
+
+                <span className="ubuntu black-text hide-on-med-and-up">
+                  Old Guy Bikes
+                </span>
+
+                <span className="hide-on-large-only">
+                  <Sidebar />
+                </span>
+              </div>
+
+              {/* Show links based on whether a user is logged in or not */}
+              <ul className="right hide-on-med-and-down">
+                <li>
+                  <NavLink className="ubuntu black-text" to={"/admin"}>
+                    Admin Dashboard
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="ubuntu black-text" to={"/bikes"}>
+                    Bikes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="ubuntu black-text" to={"/about"}>
+                    About
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className="ubuntu black-text"
+                    to={"/signin"}
+                    onClick={this.props.signOut}
+                  >
+                    Log Out
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      );
+    }
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
 };
 
-export default Navbar;
+const mapDispatchToProps = dispatch => {
+  return {
+    signOut: () => dispatch(signOut())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);

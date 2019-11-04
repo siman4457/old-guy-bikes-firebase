@@ -98,7 +98,7 @@ class CreateBike extends Component {
             <div className="input-field">
               <Toast
                 type="submit"
-                className="btn pink lighten-1 z-depth-0"
+                className="black z-depth-0  btn-large"
                 options={{ html: "New bike added!" }}
               >
                 Submit

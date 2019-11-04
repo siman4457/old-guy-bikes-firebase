@@ -72,3 +72,26 @@ section.center {
 .rounded-corners {
   border-radius: 2%;
 }
+
+.footer-link {
+  background-color: black;
+  color: white;
+}
+
+.footer-link:hover {
+  color: black;
+  background-color: white;
+}
+
+#owner-login:hover {
+  font-weight: bold;
+}
+
+#signature:hover {
+  font-weight: bold;
+}
+
+span {
+  font-size: 20px;
+  color: black;
+}
