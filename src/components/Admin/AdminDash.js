@@ -13,7 +13,7 @@ class AdminDash extends Component {
       return <Redirect to="/signin" />;
     } else {
       return (
-        <div className="container">
+        <div className="wrapper">
           <div className="row">
             <h2>Admin Dashboard</h2>
           </div>
@@ -33,16 +33,13 @@ class AdminDash extends Component {
               Edit or delete a bike
             </Link>
           </div>
-
-          <footer>
-            <a
-              className="red z-depth-0 btn-large"
-              href="/signin"
-              onClick={this.props.signOut}
-            >
-              Log Out
-            </a>
-          </footer>
+          <a
+            className="red z-depth-0 btn-large"
+            href="/signin"
+            onClick={this.props.signOut}
+          >
+            Log Out
+          </a>
         </div>
       );
     }
@@ -61,7 +58,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AdminDash);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminDash);

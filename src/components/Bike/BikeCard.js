@@ -17,7 +17,7 @@ class BikeCard extends Component {
           <div className="card-content">
             <span className="card-title activator grey-text text-darken-4">
               {bike.bikeName}
-              {/* <i className="material-icons right">more_vert</i> */}
+
               <p>${bike.price}</p>
             </span>
 

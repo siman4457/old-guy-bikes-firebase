@@ -13,18 +13,18 @@ class Navbar extends Component {
     if (!auth.uid) {
       return (
         <div>
-          <nav className="nav-wrapper white z-depth-0">
+          <nav className="nav-wrapper z-depth-0">
             <div className="container">
               {/* Desktop Nav Bar */}
               <Link
                 to={"/bikes"}
-                className="ubuntu brand-logo black-text hide-on-small-only"
+                className="brand-logo black-text hide-on-small-only"
               >
                 Old Guy Bikes
               </Link>
 
               {/* Mobile Nav Bar */}
-              <span className="ubuntu black-text hide-on-med-and-up">
+              <span className="brand-logo black-text hide-on-med-and-up">
                 Old Guy Bikes
               </span>
 
@@ -35,13 +35,28 @@ class Navbar extends Component {
               {/* Show links based on whether a user is logged in or not */}
               <ul className="right hide-on-med-and-down">
                 <li>
-                  <NavLink className="ubuntu black-text" to={"/bikes"}>
+                  <NavLink className="black-text" to={"/"}>
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="black-text" to={"/bikes"}>
                     Bikes
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="ubuntu black-text" to={"/about"}>
+                  <NavLink className="black-text" to={"/about"}>
                     About
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="black-text" to={"/soldbikes"}>
+                    Sold Bikes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="black-text" to={"/contact"}>
+                    Contact
                   </NavLink>
                 </li>
               </ul>
@@ -54,20 +69,20 @@ class Navbar extends Component {
     else {
       return (
         <div>
-          <nav className="nav-wrapper white z-depth-0">
+          <nav className="nav-wrapper z-depth-0">
             <div className="container">
               <div className="planner-logo">
                 {/* Desktop Nav Bar */}
                 <Link
                   to={"/bikes"}
-                  className="ubuntu brand-logo black-text hide-on-small-only"
+                  className="brand-logo black-text hide-on-small-only"
                 >
                   Old Guy Bikes
                 </Link>
 
                 {/* Mobile Nav Bar */}
 
-                <span className="ubuntu black-text hide-on-med-and-up">
+                <span className="brand-logo black-text hide-on-med-and-up">
                   Old Guy Bikes
                 </span>
 
@@ -79,18 +94,28 @@ class Navbar extends Component {
               {/* Show links based on whether a user is logged in or not */}
               <ul className="right hide-on-med-and-down">
                 <li>
-                  <NavLink className="ubuntu black-text" to={"/admin"}>
+                  <NavLink className="black-text" to={"/admin"}>
                     Admin Dashboard
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="ubuntu black-text" to={"/bikes"}>
+                  <NavLink className="black-text" to={"/bikes"}>
                     Bikes
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="ubuntu black-text" to={"/about"}>
+                  <NavLink className="black-text" to={"/about"}>
                     About
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="black-text" to={"/soldbikes"}>
+                    Sold Bikes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="black-text" to={"/contact"}>
+                    Contact
                   </NavLink>
                 </li>
                 <li>
@@ -123,7 +148,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -7,13 +7,6 @@ const initState = {
       description: "blah blah blah",
       price: 100,
       photoURL: "test.com"
-    },
-    {
-      id: "2",
-      bikeName: "Trek",
-      description: "blah blach blah",
-      price: 200,
-      photoURL: "test.com"
     }
   ]
 };
@@ -38,6 +31,12 @@ const bikeReducer = (state = initState, action) => {
 
     case "EDIT_BIKE_ERROR":
       return state; //not sure about this. might want to return the error
+
+    case "SELL_BIKE":
+      return state;
+
+    case "SELL_BIKE_ERROR":
+      return state;
 
     default:
       return state;

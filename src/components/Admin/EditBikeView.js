@@ -6,6 +6,7 @@ import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
 import { editBike } from "../../store/actions/bikeActions";
 import { deleteBike } from "../../store/actions/bikeActions";
+import { sellBike } from "../../store/actions/bikeActions";
 import { Redirect } from "react-router-dom";
 
 class EditBikeView extends Component {
@@ -73,8 +74,11 @@ class EditBikeView extends Component {
 
   handleSubmit = e => {
     const localBike = this.state;
-    let bikeId = this.props.bikeId;
-    this.props.editBike(localBike, bikeId);
+    // let bikeId = this.props.bikeId;
+    // this.props.editBike(localBike, bikeId);
+    console.log("success?");
+    console.log(localBike);
+    //Redirect
     let path = "/admin/manageBikes";
     this.props.history.push(path);
   };
@@ -84,6 +88,20 @@ class EditBikeView extends Component {
       "Are you sure you want to cancel your changes?"
     );
     if (result) {
+      let path = "/admin/manageBikes";
+      this.props.history.push(path);
+    }
+  };
+
+  handleSold = e => {
+    let result = window.confirm(
+      "Are you sure you want to mark this bike as sold?"
+    );
+    if (result) {
+      const localBike = this.state;
+      let bikeId = this.props.bikeId;
+      this.props.sellBike(localBike, bikeId);
+      //Redirect
       let path = "/admin/manageBikes";
       this.props.history.push(path);
     }
@@ -154,23 +172,28 @@ class EditBikeView extends Component {
             </form>
             <div className="row">
               <button
-                className="col s4 black z-depth-0 waves-effect waves-light btn-large"
+                className="col s3 black z-depth-0 waves-effect waves-light btn-large"
                 onClick={this.handleSubmit}
               >
                 Update
               </button>
-
               <button
-                onClick={this.handleDelete}
-                className="col s4 red z-depth-0 waves-effect waves-light btn-large"
+                onClick={this.handleSold}
+                className="col s3 black z-depth-0 waves-effect waves-light btn-large"
               >
-                Delete
+                Mark as sold
               </button>
               <button
                 onClick={this.handleCancel}
-                className="col s4 black z-depth-0 waves-effect waves-light btn-large"
+                className="col s3 black z-depth-0 waves-effect waves-light btn-large"
               >
                 Cancel
+              </button>
+              <button
+                onClick={this.handleDelete}
+                className="col s3 red z-depth-0 waves-effect waves-light btn-large"
+              >
+                Delete
               </button>
             </div>
           </div>
@@ -202,15 +225,13 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     editBike: (bike, bikeId) => dispatch(editBike(bike, bikeId)),
-    deleteBike: bikeId => dispatch(deleteBike(bikeId))
+    deleteBike: bikeId => dispatch(deleteBike(bikeId)),
+    sellBike: (bike, bikeId) => dispatch(sellBike(bike, bikeId))
   };
 };
 
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
     {
       collection: "bikes"

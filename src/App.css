@@ -1,32 +1,24 @@
-.App {
+@import url("https://fonts.googleapis.com/css?family=Lobster|Playfair+Display&display=swap");
+
+body {
+  background-color: #f0e5d1;
+  font-family: "Playfair Display", serif;
+}
+
+/* .App {
   text-align: center;
-  font-family: "Ubuntu", sans-serif;
-}
+} */
 
-.ubuntu {
+/* .ubuntu {
   font-family: "Ubuntu", sans-serif;
-}
+} */
 
-.App-header {
-  background-color: #fff;
+/* .App-header {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+} */
 
 img {
   width: 90%;
@@ -94,4 +86,88 @@ section.center {
 span {
   font-size: 20px;
   color: black;
+}
+
+/* Container/Wrapper Styling */
+.wrapper {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
+
+/* Links Styling*/
+.text-link {
+  color: #90babf;
+  font-weight: bold;
+}
+
+/* Header Styling */
+h2 {
+  font-family: "Lobster", cursive;
+}
+
+/* Nav Styling */
+.nav-wrapper {
+  background-color: #90babf;
+}
+.brand-logo {
+  font-family: "Lobster", cursive;
+}
+
+/* Home page styling */
+p {
+  margin: 1em 0;
+}
+p + p {
+  text-indent: 2.1em;
+}
+
+h1 {
+  font-family: "Ubuntu", sans-serif;
+}
+
+h2 span {
+  font-size: 0.8em;
+}
+
+p.first:first-letter {
+  float: left;
+  font-family: Georgia, serif;
+  color: #c12432;
+  font-size: 4em;
+  padding: 0.1em 0.05em 0.1em 0;
+  margin-top: -0.9em;
+}
+
+.home-header {
+  text-align: center;
+  font-family: "Lobster", cursive;
+}
+/* footer.artical-footer {
+  text-align: right;
+}
+footer.main-footer {
+  background-color: black;
+  color: lightgray;
+  font-size: 15px;
+  margin-top: 5em;
+}
+.footer-content {
+  padding: 1em;
+} */
+p.special {
+  width: 40%;
+  background-color: maroon;
+  border-radius: 2px;
+  padding: 1em;
+  color: white;
+  margin: 1em;
+  float: right;
+}
+
+/* Button Styling */
+.contact-button {
+  background-color: #90babf;
 }

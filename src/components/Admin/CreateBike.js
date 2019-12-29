@@ -47,6 +47,9 @@ class CreateBike extends Component {
   handleSubmit = e => {
     this.props.createBike(this.state);
     e.preventDefault();
+    //Redirect
+    let path = "/admin";
+    this.props.history.push(path);
   };
 
   render() {
@@ -105,6 +108,7 @@ class CreateBike extends Component {
               </Toast>
             </div>
           </form>
+          <br />
         </div>
       );
     }
@@ -123,7 +127,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateBike);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBike);

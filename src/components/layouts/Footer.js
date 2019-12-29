@@ -9,6 +9,7 @@ const Footer = () => {
           <div className="row">
             <div className="col l6 s12">
               <h5 className="ubuntu white-text">Old Guy Bikes</h5>
+              <p className="ubuntu grey-text text-lighten-4">Since 1976</p>
               <p className="ubuntu grey-text text-lighten-4">Dallas, Texas</p>
             </div>
             <div className="col l4 offset-l2 s12">

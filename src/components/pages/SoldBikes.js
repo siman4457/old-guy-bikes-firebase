@@ -9,13 +9,12 @@ class Bikes extends Component {
     bikes: [] //undefined gets converted to array,render won't trigger error
   };
   render() {
-    const bikes = this.props.bikes.filter(bike => bike.sold === 0);
-
+    const sold_bikes = this.props.bikes.filter(bike => bike.sold === 1);
     return (
       <div className="container">
         <br />
         <h2>Bikes</h2>
-        <BikeList bikes={bikes} />
+        <BikeList bikes={sold_bikes} />
       </div>
     );
   }
