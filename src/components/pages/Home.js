@@ -25,6 +25,13 @@ class Home extends Component {
                 </Link>{" "}
                 tab.
               </p>
+              <p>
+                I do repairs and other services. I also sell cool, restored
+                vintage mountains. I can make a mountain bike a one speed and a
+                road bike a hybrid, but I specialize in mountain bikes. Please
+                feel free to call me if you're interested in my services or
+                bikes.
+              </p>
 
               <aside class="sidebar">
                 <h4>Questions?</h4>

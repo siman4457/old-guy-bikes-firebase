@@ -67,7 +67,8 @@ section.center {
 
 .footer-link {
   background-color: black;
-  color: white;
+  color: #90babf;
+  font-weight: bold;
 }
 
 .footer-link:hover {
@@ -79,7 +80,7 @@ section.center {
   font-weight: bold;
 }
 
-#signature:hover {
+#signature {
   font-weight: bold;
 }
 
@@ -167,7 +168,15 @@ p.special {
   float: right;
 }
 
-/* Button Styling */
+/* Contact Styling */
 .contact-button {
   background-color: #90babf;
+}
+
+.contact-image {
+  border-radius: 3px;
+  margin-top: 50%;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }

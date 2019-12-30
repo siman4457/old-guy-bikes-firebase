@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class BikeCard extends Component {
+  static defaultProps = {
+    bikes: [] //undefined gets converted to array,render won't trigger error
+  };
   render() {
     const { bike } = this.props;
+    let price;
+    if (!bike.sold) {
+      price = <p>${bike.price}</p>;
+    } else {
+      price = <p>SOLD</p>;
+    }
     return (
       <div>
         <div style={{ margin: "30px" }} className="card">
@@ -14,21 +23,19 @@ class BikeCard extends Component {
               className="activator"
             />
           </div>
-          <div className="card-content">
+          <div className="card-content center">
             <span className="card-title activator grey-text text-darken-4">
               {bike.bikeName}
 
-              <p>${bike.price}</p>
+              <p>{price}</p>
             </span>
 
-            <p>
-              <Link
-                className="btn black z-depth-0"
-                to={"/bikes/bikeview/" + bike.id}
-              >
-                Details
-              </Link>
-            </p>
+            <Link
+              className="btn black z-depth-0"
+              to={"/bikes/bikeview/" + bike.id}
+            >
+              Details
+            </Link>
           </div>
           {/* TODO: Description is not working properly */}
           <div className="card-reveal">

@@ -8,16 +8,17 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="ubuntu white-text">Old Guy Bikes</h5>
-              <p className="ubuntu grey-text text-lighten-4">Since 1976</p>
-              <p className="ubuntu grey-text text-lighten-4">Dallas, Texas</p>
+              <h5 className="white-text">Old Guy Bikes</h5>
+              <p className="grey-text text-lighten-4">
+                Dallas, Texas Since 1976
+              </p>
             </div>
             <div className="col l4 offset-l2 s12">
-              <h5 className="ubuntu white-text">Links</h5>
+              <h5 className="white-text">Links</h5>
               <ul>
                 <li>
                   <Link
-                    className="ubuntu footer-link"
+                    className=" footer-link"
                     id="owner-login"
                     to={"/signin"}
                   >
@@ -45,21 +46,22 @@ const Footer = () => {
                     </a>
                   </div>
                 </li>
+                <br />
+                <li>
+                  <Link
+                    to="simanls.com"
+                    className=" footer-link"
+                    id="signature"
+                  >
+                    Created by Siman Shrestha
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
         </div>
         <div className="footer-copyright">
-          <div className="container">
-            {/* © 2019 Copyright Text */}
-            <Link
-              to="simanls.com"
-              className="ubuntu footer-link right"
-              id="signature"
-            >
-              Created by Siman Shrestha
-            </Link>
-          </div>
+          <div className="container">{/* © 2019 Copyright Text */}</div>
         </div>
       </footer>
     </div>

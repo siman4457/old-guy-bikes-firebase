@@ -66,10 +66,7 @@ class Contact extends Component {
               <br />
             </div>
             <div className="col s6">
-              <img
-                src="/contact/contact.jpg"
-                alt="Oops. Error loading photo."
-              />
+              <img className="contact-image" src="/contact.jpg" alt="" />
             </div>
           </div>
         </div>

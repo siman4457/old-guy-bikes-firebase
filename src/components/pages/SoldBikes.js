@@ -13,7 +13,7 @@ class Bikes extends Component {
     return (
       <div className="container">
         <br />
-        <h2>Bikes</h2>
+        <h2>Sold Bikes</h2>
         <BikeList bikes={sold_bikes} />
       </div>
     );

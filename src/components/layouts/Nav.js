@@ -45,11 +45,6 @@ class Navbar extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="black-text" to={"/about"}>
-                    About
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink className="black-text" to={"/soldbikes"}>
                     Sold Bikes
                   </NavLink>
@@ -101,11 +96,6 @@ class Navbar extends Component {
                 <li>
                   <NavLink className="black-text" to={"/bikes"}>
                     Bikes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="black-text" to={"/about"}>
-                    About
                   </NavLink>
                 </li>
                 <li>

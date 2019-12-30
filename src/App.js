@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/layouts/Nav";
-import About from "./components/pages/About";
 import Bikes from "./components/pages/Bikes";
 import BikeView from "./components/Bike/BikeView";
 import AdminDash from "./components/Admin/AdminDash";
@@ -26,7 +25,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/bikes" component={Bikes} />
             {/* <Route path="/contact" component={Contact} /> */}
-            <Route path="/about" component={About} />
+
             <Route path="/bikes/bikeview/:id" component={BikeView} />
             <Route path="/contact" component={Contact} />
             <Route path="/soldbikes" component={SoldBikes} />
