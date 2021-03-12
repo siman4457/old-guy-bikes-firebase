@@ -26,7 +26,6 @@ class EditBikeCard extends Component {
               </span>
 
               <p>
-                {/* <Link to={"/admin/editBike/" + bike.id}>Edit</Link> */}
                 <Link
                   to={{
                     pathname: "/admin/editBike/" + bike.id,
@@ -65,7 +64,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(EditBikeCard);
+export default connect(mapStateToProps, null)(EditBikeCard);

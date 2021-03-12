@@ -4,3 +4,8 @@ const functions = require("firebase-functions");
 //like authentication service and firestore service
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
+
+exports.projectCreated = functions.https
+    .onCall((data, context) => {
+        
+    })

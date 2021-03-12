@@ -61,7 +61,7 @@ class CreateBike extends Component {
       return (
         <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
-            <h5 className="grey-text text-darken-3">Add a New Bike</h5>
+            <h5 className="grey-text text-darken-3">Add a new bike</h5>
             <div className="input-field">
               <label htmlFor="bikeName">Bike Name</label>
               <input type="text" id="bikeName" onChange={this.handleChange} />

@@ -11,6 +11,10 @@ class Home extends Component {
               <header className="home-header">
                 <h2>Welcome to Old Guy Bikes</h2>
                 <h3>Since 1976</h3>
+                {/* <img
+                  src="/logo.jpg"
+                  alt="Oops. Looks like the logo is missing."
+                /> */}
               </header>
               <p class="first">
                 My name is Robert and I've been rebuilding and repairing bikes
@@ -93,7 +97,7 @@ class Home extends Component {
             <br />
             <article>
               <header>
-                <h2>My Promise To You Since 1997</h2>
+                <h2>My Promise To You Since 1976</h2>
               </header>
               <p>
                 Ut tempor ultricies dolor. Fusce sed mauris. Duis sollicitudin

@@ -130,6 +130,7 @@ class EditBikeView extends Component {
                   defaultValue={bike.bikeName}
                 />
               </div>
+
               <div className="input-field">
                 <label htmlFor="price" className="active">
                   Price

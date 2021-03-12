@@ -30,8 +30,8 @@ class SignIn extends Component {
     }
 
     return (
-      <div className="container">
-        <h1>Admin Sign In</h1>
+      <div className="container center">
+        <h2>Admin Sign In</h2>
         <form onSubmit={this.handleSubmit} className="white">
           <div className="input-field">
             <label htmlFor="email">Email</label>
@@ -42,7 +42,7 @@ class SignIn extends Component {
             <input id="password" type="password" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button type="submit" className="black z-depth-0  btn-large">
+            <button type="submit" className="black z-depth-0 btn-large">
               Log in
             </button>
           </div>
@@ -69,7 +69,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
